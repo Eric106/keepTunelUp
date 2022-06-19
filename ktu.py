@@ -13,12 +13,14 @@ def check_ping(hostname:str):
         return False
 
 def main():
+    sleep_seconds = 2
     parser = ArgumentParser(description="wtop args parser")
     parser.add_argument('-host', dest='host', type=str, default=False)
     parser.add_argument('-command', dest='command', type=str, default='')
     args = parser.parse_args()
+    
     while True:
-        sleep(2)
+        sleep(sleep_seconds)
         now = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         isup = check_ping(args.host)
         print(f'[log {now}] Access Point UP: {isup}')
